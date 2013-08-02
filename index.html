@@ -1,0 +1,50 @@
+<!doctype html>
+<head>
+  <title>SPK Typeahead</title>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.5/angular.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.9.2/typeahead.min.js"></script>
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.css">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+  <script src="angular-spk-typeahead.js"></script>
+  
+
+  <script>
+    angular.module('mytest',['spk-directives'])
+    .controller('TestController',function($scope){
+      $scope.countryObj= {
+        "India": "91",
+        "China":"86",
+        "United States": "1"
+      }
+    })
+  </script>
+</head>
+<body ng-app='mytest'>
+  <div class="container">
+    <h1>
+      Angular SPK Typeahead Demo
+    </h1>
+    <form action="" class="form form-horizontal">
+      <div class='well' ng-controller='TestController' >        
+        <div class="control-group">
+          <label class='control-label' for="isd_code">Country</label>
+          <div class="controls">
+            <input type="text" ng-model="typeahead_father_val" target-model="isd_code" spk-typeahead="countryObj" data-provide="typeahead">
+            <br>
+            <small>
+              ISD code is <strong>{{isd_code}}</strong>  
+            </small>
+            
+          </div>  
+        </div>        
+      </div>   
+    </form>
+  </div>
+  
+
+  
+  
+</body>
+</html>
